@@ -1,5 +1,7 @@
 package spring.java.config;
 
+import java.util.Date;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -16,6 +18,10 @@ public static void main(String[] args) {
 	BlogPostService blogPostService=applicationContext.getBean(BlogPostService.class);
 	
 	BlogPost blog=new BlogPost();
-	
+	blog.setId(1);
+	blog.setContent("post detail");
+	blog.setTitle("Post");
+	blog.setPublishDate(new Date());
+	blogPostService.save(blog);
 }
 }
